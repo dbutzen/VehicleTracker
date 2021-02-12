@@ -11,7 +11,7 @@ namespace DTB.VehicleTracker.PL
         public Guid ColorId { get; set; }
         public Guid MakeId { get; set; }
         public Guid ModelId { get; set; }
-        public string Vin { get; set; }
+        public string VIN { get; set; }
         public int Year { get; set; }
 
         public virtual tblColor Color { get; set; }
