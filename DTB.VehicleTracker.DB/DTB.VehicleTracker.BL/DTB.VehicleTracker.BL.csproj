@@ -4,4 +4,9 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DTB.VehicleTracker.BL.Models\DTB.VehicleTracker.BL.Models.csproj" />
+    <ProjectReference Include="..\DTB.VehicleTracker.PL\DTB.VehicleTracker.PL.csproj" />
+  </ItemGroup>
+
 </Project>
