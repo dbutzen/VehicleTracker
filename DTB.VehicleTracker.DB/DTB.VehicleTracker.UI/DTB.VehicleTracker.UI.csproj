@@ -6,4 +6,9 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DTB.VehicleTracker.BL.Models\DTB.VehicleTracker.BL.Models.csproj" />
+    <ProjectReference Include="..\DTB.VehicleTracker.BL\DTB.VehicleTracker.BL.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -64,12 +64,12 @@
     <Folder Include="StoredProcedures" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="PostDeployment\DefaultData\tblColor.sql" />
-    <Build Include="PostDeployment\DefaultData\tblMake.sql" />
-    <Build Include="PostDeployment\DefaultData\tblModel.sql" />
-    <Build Include="PostDeployment\DefaultData\tblVehicle.sql" />
-    <Build Include="PostDeployment\Script.PostDeployment1.sql" />
-    <Build Include="PreDeployment\Script.PreDeployment1.sql" />
+    <None Include="PostDeployment\DefaultData\tblColor.sql" />
+    <None Include="PostDeployment\DefaultData\tblMake.sql" />
+    <None Include="PostDeployment\DefaultData\tblModel.sql" />
+    <None Include="PostDeployment\DefaultData\tblVehicle.sql" />
+    <PostDeploy Include="PostDeployment\Script.PostDeployment1.sql" />
+    <PreDeploy Include="PreDeployment\Script.PreDeployment1.sql" />
     <Build Include="ForeignKeys\tblVehicle_ColorId.sql" />
     <Build Include="ForeignKeys\tblVehicle_MakeId.sql" />
     <Build Include="ForeignKeys\tblVehicle_ModelId.sql" />
