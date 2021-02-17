@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DTB.VehicleTracker.BL;
+using DTB.VehicleTracker.BL.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +22,7 @@ namespace DTB.VehicleTracker.UI
     /// </summary>
     public partial class VehicleList : Window
     {
+        List<Vehicle> vehicles;
         public VehicleList()
         {
             InitializeComponent();
@@ -49,12 +52,30 @@ namespace DTB.VehicleTracker.UI
 
         private void BtnLoad_Click(object sender, RoutedEventArgs e)
         {
+            Reload();
+        }
+
+        private async void Reload()
+        {
+            vehicles = (List<Vehicle>)await VehicleManager.Load();
+            grdVehicles.ItemsSource = null;
+            grdVehicles.ItemsSource = vehicles;
+
+            grdVehicles.Columns[0].Visibility = Visibility.Hidden;
+            grdVehicles.Columns[1].Visibility = Visibility.Hidden;
+            grdVehicles.Columns[2].Visibility = Visibility.Hidden;
+            grdVehicles.Columns[3].Visibility = Visibility.Hidden;
+
+            grdVehicles.Columns[6].Header = "Color";
+            grdVehicles.Columns[7].Header = "Make";
+            grdVehicles.Columns[8].Header = "Model";
+
 
         }
 
         private void BtnNewVehicle_Click(object sender, RoutedEventArgs e)
         {
-
+            new MaintainVehicle().ShowDialog();
         }
 
         private void BtnExport_Click(object sender, RoutedEventArgs e)
@@ -69,7 +90,7 @@ namespace DTB.VehicleTracker.UI
 
         private void BtnEditVehicle_Click(object sender, RoutedEventArgs e)
         {
-
+            new MaintainVehicle().ShowDialog();
         }
     }
 }

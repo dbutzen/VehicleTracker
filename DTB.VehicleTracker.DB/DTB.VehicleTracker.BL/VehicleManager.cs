@@ -146,6 +146,9 @@ namespace DTB.VehicleTracker.BL
                         vehicle.VIN = tblVehicle.VIN;
                         vehicle.Year = tblVehicle.Year;
                         vehicle.Id = tblVehicle.Id;
+                        vehicle.ColorName = tblVehicle.Color.Description;
+                        vehicle.ModelName = tblVehicle.Model.Description;
+                        vehicle.MakeName = tblVehicle.Make.Description;
                         return vehicle;
                     }
                     else
@@ -176,7 +179,10 @@ namespace DTB.VehicleTracker.BL
                         ModelId = c.ModelId,
                         MakeId = c.MakeId,
                         VIN = c.VIN,
-                        Year = c.Year
+                        Year = c.Year,
+                        ColorName = c.Color.Description,
+                        MakeName = c.Make.Description,
+                        ModelName = c.Model.Description
                     })) ;
                     return vehicles;
                 }
