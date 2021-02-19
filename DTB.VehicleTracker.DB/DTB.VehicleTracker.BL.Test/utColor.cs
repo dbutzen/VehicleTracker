@@ -59,7 +59,7 @@ namespace DTB.VehicleTracker.BL.Test
                 Models.Color color = colors.FirstOrDefault(c => c.Code == 6591981);
                 color.Description = "Updated Color";
                 var results = ColorManager.Update(color, true);
-                Assert.IsTrue(results > 0);
+                Assert.IsTrue(results.Result > 0);
             
         }
         /*
@@ -79,7 +79,7 @@ namespace DTB.VehicleTracker.BL.Test
                 IEnumerable<Models.Color> colors = task.Result;
                 Models.Color color = colors.FirstOrDefault(c => c.Code == 6591981);
                 var results = ColorManager.Delete(color.Id, true);
-                Assert.IsTrue(results > 0);
+                Assert.IsTrue(results.Result > 0);
             
         }
     }
