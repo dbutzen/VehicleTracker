@@ -4,9 +4,52 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DTB.VehicleTracker.UI"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-        Title="MaintainColors" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="MaintainColors" Height="250" Width="400" Loaded="Window_Loaded">
+    
+        <Grid>
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="CornflowerBlue" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <ComboBox 
+            x:Name="cboAttribute" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top" 
+            Width="155" 
+            Margin="110,21,0,0" 
+            SelectionChanged="CboAttribute_SelectionChanged" >
+            </ComboBox>
+            <TextBox x:Name="txtDescription" HorizontalAlignment="Left" Height="23" Width="250" TextWrapping="Wrap" Margin="110,113,0,0" VerticalAlignment="Top"/>
+            <Button x:Name="btnUpdate" Content="Update" HorizontalAlignment="Left" Width="75" Margin="110,173,0,0" VerticalAlignment="Top" Height="22" Click="BtnUpdate_Click"/>
+            <Button x:Name="btnDelete" Content="Delete" HorizontalAlignment="Left" Width="75" Margin="195,173,0,0" VerticalAlignment="Top" Height="22" Click="BtnDelete_Click"/>
+            <Button x:Name="btnInsert" Content="Insert" HorizontalAlignment="Left" Margin="25,173,0,0" VerticalAlignment="Top" Width="75" Height="22" Click="BtnInsert_Click"/>
+            <Label Content="Description:" 
+               HorizontalAlignment="Left" 
+               Margin="10,109,0,0" 
+               VerticalAlignment="Top" 
+               Foreground="White" 
+               Width="89" 
+               Height="27"/>
+            <xctk:ColorPicker Name="cpCode"
+                          Margin="110, 70, 0,0"
+                          SelectedColorChanged="ColorPicker_SelectedColorChanged"
+                          HorizontalAlignment="Left"
+                          Width="155"
+                          Height="22"
+                          VerticalAlignment="Top">
+            </xctk:ColorPicker>
+            <Label Content="Color:" 
+               HorizontalAlignment="Left"
+               Margin="10, 71, 0, 0"
+               VerticalAlignment="Top"
+               Height="27"
+               Width="89"
+               Foreground="White"></Label>
+
+
+        </Grid>
 </Window>

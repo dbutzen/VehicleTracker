@@ -53,27 +53,34 @@ namespace DTB.VehicleTracker.BL.Test
         [TestMethod]
         public void UpdateTest()
         {
-            Task.Run(async () =>
-            {
-                var task = await ColorManager.Load();
-                IEnumerable<Models.Color> colors = task;
+            
+                var task = ColorManager.Load();
+                IEnumerable<Models.Color> colors = task.Result;
                 Models.Color color = colors.FirstOrDefault(c => c.Code == 6591981);
                 color.Description = "Updated Color";
-                int results = await ColorManager.Update(color, true);
+                var results = ColorManager.Update(color, true);
                 Assert.IsTrue(results > 0);
-            });
+            
         }
+        /*
+         * var task = ColorManager.Load();          //To make sync
+                IEnumerable<Models.Color> colors = task.Result;
+                Models.Color color = colors.FirstOrDefault(c => c.Code == 6591981);
+                color.Description = "Updated Color";
+                int results = ColorManager.Update(color, true);
+                Assert.IsTrue(results > 0);
+         * */
+
         [TestMethod]
         public void DeleteTest()
         {
-            Task.Run(async () =>
-            {
-                var task = await ColorManager.Load();
-                IEnumerable<Models.Color> colors = task;
+            
+                var task = ColorManager.Load();
+                IEnumerable<Models.Color> colors = task.Result;
                 Models.Color color = colors.FirstOrDefault(c => c.Code == 6591981);
-                int results = await ColorManager.Delete(color.Id, true);
+                var results = ColorManager.Delete(color.Id, true);
                 Assert.IsTrue(results > 0);
-            });
+            
         }
     }
 }

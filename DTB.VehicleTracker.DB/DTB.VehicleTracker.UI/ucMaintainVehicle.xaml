@@ -9,6 +9,8 @@
     <Grid>
         <Label x:Name="lblAttribute" Content="Colors:" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top"
                Foreground="White"/>
+        <Image x:Name="imgDelete" Source="pack://siteoforigin:,,,/Resources/delete.png" HorizontalAlignment="Left" 
+               Margin="200, 6, 0, 3" VerticalAlignment="top" Width="19" Height="21" Stretch="Fill" />
         <ComboBox x:Name="cboAttribute" HorizontalAlignment="Left" Margin="46,5,0,0" VerticalAlignment="Top" Width="146"/>
 
     </Grid>

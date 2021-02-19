@@ -42,7 +42,7 @@ namespace DTB.VehicleTracker.UI
 
         private void BtnColor_Click(object sender, RoutedEventArgs e)
         {
-
+            new MaintainColors().ShowDialog();
         }
 
         private void BtnModels_Click(object sender, RoutedEventArgs e)

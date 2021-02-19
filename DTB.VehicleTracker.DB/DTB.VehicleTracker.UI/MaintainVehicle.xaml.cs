@@ -50,6 +50,11 @@ namespace DTB.VehicleTracker.UI
             ucMaintainVehicle ucModels = new ucMaintainVehicle(ControlMode.Model, vehicle.ModelId);
             ucMaintainVehicle ucYears = new ucMaintainVehicle(ControlMode.Year, vehicle.Id);
 
+            ucColors.imgDelete.MouseLeftButtonUp += ImgDelete_MouseLeftButtonUp;
+            ucMakes.imgDelete.MouseLeftButtonUp += ImgDelete_MouseLeftButtonUp;
+            ucModels.imgDelete.MouseLeftButtonUp += ImgDelete_MouseLeftButtonUp;
+            ucYears.imgDelete.MouseLeftButtonUp += ImgDelete_MouseLeftButtonUp;
+
             ucColors.Margin = new Thickness(40, 25, 0, 0);
             ucMakes.Margin = new Thickness(40, 60, 0, 0);
             ucModels.Margin = new Thickness(40, 95, 0, 0);
@@ -71,6 +76,11 @@ namespace DTB.VehicleTracker.UI
             btnUpdate.Margin = new Thickness(116, 200, 0, 0);
             btnDelete.Margin = new Thickness(196, 200, 0, 0);
 
+        }
+
+        private void ImgDelete_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            this.Title = "Picked the Image" + DateTime.Now;
         }
 
         private void BtnInsert_Click(object sender, RoutedEventArgs e)
