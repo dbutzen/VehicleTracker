@@ -35,8 +35,8 @@ namespace DTB.VehicleTracker.Web.Controllers
         {
 
             HttpClient client = new HttpClient();
-            //client.BaseAddress = new Uri("https://localhost:44343/api/");
-            client.BaseAddress = new Uri("https://vehicletrackerapi.azurewebsites.net/api/");
+            client.BaseAddress = new Uri("https://localhost:44343/api/");
+            //client.BaseAddress = new Uri("https://vehicletrackerapi.azurewebsites.net/api/");
             return client;
         }
 
