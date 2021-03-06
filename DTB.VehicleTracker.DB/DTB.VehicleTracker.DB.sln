@@ -5,17 +5,21 @@ VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DTB.VehicleTracker.DB", "DTB.VehicleTracker.DB\DTB.VehicleTracker.DB.sqlproj", "{A4B7FED8-3C79-42DF-9B8D-ED76625A9558}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTB.VehicleTracker.BL.Models", "DTB.VehicleTracker.BL.Models\DTB.VehicleTracker.BL.Models.csproj", "{E73222A2-5EFF-4D6A-961A-08135E956B77}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DTB.VehicleTracker.BL.Models", "DTB.VehicleTracker.BL.Models\DTB.VehicleTracker.BL.Models.csproj", "{E73222A2-5EFF-4D6A-961A-08135E956B77}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTB.VehicleTracker.BL", "DTB.VehicleTracker.BL\DTB.VehicleTracker.BL.csproj", "{6472B8E5-8DBA-4A54-9B16-BF258CA0A004}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DTB.VehicleTracker.BL", "DTB.VehicleTracker.BL\DTB.VehicleTracker.BL.csproj", "{6472B8E5-8DBA-4A54-9B16-BF258CA0A004}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTB.VehicleTracker.PL", "DTB.VehicleTracker.PL\DTB.VehicleTracker.PL.csproj", "{55E919C4-77D4-4ED2-BAE9-A904F0D9F684}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DTB.VehicleTracker.PL", "DTB.VehicleTracker.PL\DTB.VehicleTracker.PL.csproj", "{55E919C4-77D4-4ED2-BAE9-A904F0D9F684}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTB.VehicleTracker.PL.Test", "DTB.VehicleTracker.PL.Test\DTB.VehicleTracker.PL.Test.csproj", "{CB6D93B7-B399-4912-B66C-EEAFE56F22F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DTB.VehicleTracker.PL.Test", "DTB.VehicleTracker.PL.Test\DTB.VehicleTracker.PL.Test.csproj", "{CB6D93B7-B399-4912-B66C-EEAFE56F22F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTB.VehicleTracker.BL.Test", "DTB.VehicleTracker.BL.Test\DTB.VehicleTracker.BL.Test.csproj", "{9AE6F6C8-6B49-4F39-BC37-349C4F828414}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DTB.VehicleTracker.BL.Test", "DTB.VehicleTracker.BL.Test\DTB.VehicleTracker.BL.Test.csproj", "{9AE6F6C8-6B49-4F39-BC37-349C4F828414}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTB.VehicleTracker.UI", "DTB.VehicleTracker.UI\DTB.VehicleTracker.UI.csproj", "{5A405C60-A850-4E76-BB10-AE06C0CB3864}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DTB.VehicleTracker.UI", "DTB.VehicleTracker.UI\DTB.VehicleTracker.UI.csproj", "{5A405C60-A850-4E76-BB10-AE06C0CB3864}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTB.VehicleTracker.API", "DTB.VehicleTracker.API\DTB.VehicleTracker.API.csproj", "{1F8148DD-E5CA-4FFE-BC5A-2C014690EF37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTB.VehicleTracker.Web", "DTB.VehicleTracker.Web\DTB.VehicleTracker.Web.csproj", "{63296BEF-4E24-4B60-AA91-7158D89FF3F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +57,14 @@ Global
 		{5A405C60-A850-4E76-BB10-AE06C0CB3864}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A405C60-A850-4E76-BB10-AE06C0CB3864}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A405C60-A850-4E76-BB10-AE06C0CB3864}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F8148DD-E5CA-4FFE-BC5A-2C014690EF37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F8148DD-E5CA-4FFE-BC5A-2C014690EF37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F8148DD-E5CA-4FFE-BC5A-2C014690EF37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F8148DD-E5CA-4FFE-BC5A-2C014690EF37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63296BEF-4E24-4B60-AA91-7158D89FF3F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63296BEF-4E24-4B60-AA91-7158D89FF3F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63296BEF-4E24-4B60-AA91-7158D89FF3F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63296BEF-4E24-4B60-AA91-7158D89FF3F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

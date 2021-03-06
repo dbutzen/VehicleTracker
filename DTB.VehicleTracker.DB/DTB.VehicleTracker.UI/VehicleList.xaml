@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DTB.VehicleTracker.UI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Vehicle List" Height="450" Width="800" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -15,7 +15,7 @@
         </Grid.Background>
 
         <DataGrid x:Name="grdVehicles" HorizontalAlignment="Left" Height="358" Margin="10,10,0,0" VerticalAlignment="Top" Width="648"/>
-        <ComboBox HorizontalAlignment="Left" Margin="630,373,0,0" VerticalAlignment="Top" Width="152" Height="36"/>
+        <ComboBox x:Name="cboFilter" HorizontalAlignment="Left" Margin="630,373,0,0" VerticalAlignment="Top" Width="152" Height="36" SelectionChanged="cboFilter_SelectionChanged"/>
         <Button x:Name="btnColor" Content="Colors" HorizontalAlignment="Left" VerticalAlignment="Top" Width="119" Margin="663,10,0,0" Height="38" Click="BtnColor_Click"/>
         <Button x:Name="btnMakes" Content="Makes" HorizontalAlignment="Left" VerticalAlignment="Top" Width="119" Margin="663,53,0,0" Height="38" Click="BtnMakes_Click"/>
         <Button x:Name="btnModels" Content="Models" HorizontalAlignment="Left" VerticalAlignment="Top" Width="119" Margin="663,96,0,0" Height="38" Click="BtnModels_Click"/>

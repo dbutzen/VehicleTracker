@@ -27,19 +27,24 @@ namespace DTB.VehicleTracker.UI
 
     public class Year
     {
+        
         public int Id { get; set; }
         public string Description { get; set; }
     }
     /// <summary>
     /// Interaction logic for ucMaintainVehicle.xaml
     /// </summary>
+    /// 
+
     public partial class ucMaintainVehicle : UserControl
     {
         ControlMode controlMode;
-        List<BL.Models.Color> colors;
-        List<Make> makes;
-        List<Model> models;
+        public List<BL.Models.Color> Colors { get; set; }
+        public List<Model> Models { get; set; }
+        public List<Make> Makes { get; set; }
         List<Year> years;
+
+        
 
         public ucMaintainVehicle(ControlMode controlMode, Guid id)
         {
@@ -48,6 +53,7 @@ namespace DTB.VehicleTracker.UI
             this.controlMode = controlMode;
             Reload();
             cboAttribute.SelectedValue = id;
+            cboAttribute.Tag = controlMode;
         }
 
         public ucMaintainVehicle(ControlMode controlMode, int id)
@@ -57,6 +63,7 @@ namespace DTB.VehicleTracker.UI
             this.controlMode = controlMode;
             Reload();
             cboAttribute.Text = id.ToString();
+            cboAttribute.Tag = controlMode;
         }
 
         private async void Reload()
@@ -65,16 +72,16 @@ namespace DTB.VehicleTracker.UI
             switch (controlMode)
             {
                 case ControlMode.Color:
-                    colors = (List<BL.Models.Color>)await ColorManager.Load();
-                    cboAttribute.ItemsSource = colors;
+                    Colors = (List<BL.Models.Color>)await ColorManager.Load();
+                    cboAttribute.ItemsSource = Colors;
                     break;
                 case ControlMode.Make:
-                    makes = (List<Make>)await MakeManager.Load();
-                    cboAttribute.ItemsSource = makes;
+                    Makes = (List<Make>)await MakeManager.Load();
+                    cboAttribute.ItemsSource = Makes;
                     break;
                 case ControlMode.Model:
-                    models = (List<Model>)await ModelManager.Load();
-                    cboAttribute.ItemsSource = models;
+                    Models = (List<Model>)await ModelManager.Load();
+                    cboAttribute.ItemsSource = Models;
                     break;
                 case ControlMode.Year:
                     years = new List<Year>();

@@ -193,6 +193,37 @@ namespace DTB.VehicleTracker.BL
                 throw ex;
             }
         }
+        public async static Task<IEnumerable<Models.Vehicle>> Load(string colorName)
+        {
+            try
+            {
+                List<Models.Vehicle> vehicles = new List<Models.Vehicle>();
 
+                using (VehicleEntities dc = new VehicleEntities())
+                {
+                    dc.tblVehicles
+                        .Where(v => v.Color.Description.Contains(colorName))
+                        .ToList()
+                        .ForEach(c => vehicles.Add(new Models.Vehicle
+                        {
+                            Id = c.Id,
+                            ColorId = c.ColorId,
+                            ModelId = c.ModelId,
+                            MakeId = c.MakeId,
+                            VIN = c.VIN,
+                            Year = c.Year,
+                            ColorName = c.Color.Description,
+                            MakeName = c.Make.Description,
+                            ModelName = c.Model.Description
+                        }));
+                    return vehicles;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

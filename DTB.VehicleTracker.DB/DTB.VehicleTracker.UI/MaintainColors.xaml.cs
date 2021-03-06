@@ -1,7 +1,10 @@
 ﻿using DTB.VehicleTracker.BL;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -33,12 +36,16 @@ namespace DTB.VehicleTracker.UI
             try
             {
                 color = colors[cboAttribute.SelectedIndex];
-                
-                Task.Run(async () =>
+
+                HttpClient client = InitializeClient();
+                HttpResponseMessage response = client.DeleteAsync("Color/" + color.Id).Result;
+                /*Task.Run(async () =>
                 {
                     int results = await ColorManager.Delete(color.Id);
-                });
+                });*/
 
+                colors.Remove(color);
+                Rebind(0);
             }
 
             catch (Exception ex)
@@ -71,11 +78,22 @@ namespace DTB.VehicleTracker.UI
 
                 color.Code = BitConverter.ToInt32(new byte[] { cpCode.SelectedColor.Value.B, cpCode.SelectedColor.Value.G, cpCode.SelectedColor.Value.R, 0x00 }, 0);
 
-                Task.Run(async () =>
+
+
+                HttpClient client = InitializeClient();
+                string serializedObject = JsonConvert.SerializeObject(color);
+                var content = new StringContent(serializedObject);
+                content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
+                HttpResponseMessage response = client.PostAsync("Color", content).Result;
+
+                /*Task.Run(async () =>
                 {
                     int results = await ColorManager.Insert(color);
                 });
+                */
 
+                colors.Add(color);
+                Rebind(colors.Count - 1);
             }
 
             catch (Exception ex)
@@ -94,11 +112,20 @@ namespace DTB.VehicleTracker.UI
 
                 color.Code = BitConverter.ToInt32(new byte[] { cpCode.SelectedColor.Value.B, cpCode.SelectedColor.Value.G, cpCode.SelectedColor.Value.R, 0x00 }, 0);
 
-                Task.Run(async () =>
+
+                HttpClient client = InitializeClient();
+                string serializedObject = JsonConvert.SerializeObject(color);
+                var content = new StringContent(serializedObject);
+                content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
+                HttpResponseMessage response = client.PutAsync("Color/" + color.Id, content).Result;
+
+                /*Task.Run(async () =>
                 {
                     int results = await ColorManager.Update(color);
-                });
+                });*/
 
+                colors[cboAttribute.SelectedIndex] = color;
+                Rebind(cboAttribute.SelectedIndex);
             }
 
             catch (Exception ex)
@@ -120,14 +147,44 @@ namespace DTB.VehicleTracker.UI
         {
             Reload();
         }
+        private async void Rebind(int index)
+        {
+            cboAttribute.ItemsSource = null;
+            cboAttribute.ItemsSource = colors;
+            cboAttribute.DisplayMemberPath = "Description";
+            cboAttribute.SelectedValuePath = "Id";
+            cboAttribute.SelectedIndex = index;
+        }
+
+        private static HttpClient InitializeClient()
+        {
+            HttpClient client = new HttpClient();
+            //client.BaseAddress = new Uri("https://localhost:44343/");
+            client.BaseAddress = new Uri("https://vehicletrackerapi.azurewebsites.net/api/");
+            return client;
+        }
 
         private async void Reload()
         {
-            colors = (List<BL.Models.Color>)await ColorManager.Load();
-            cboAttribute.ItemsSource = null;
-            cboAttribute.ItemsSource = colors;
-            cboAttribute.DisplayMemberPath = "Description"; //what's shown
-            cboAttribute.SelectedValuePath = "Id"; //Primary key
+            //colors = (List<BL.Models.Color>)await ColorManager.Load();
+
+            HttpClient client = InitializeClient();
+            HttpResponseMessage response;
+            string result;
+            dynamic items;
+
+            // Call API controller/get
+            response = client.GetAsync("Color").Result;
+            // Get json
+            result = response.Content.ReadAsStringAsync().Result;
+            // split json into array
+            items = (JArray)JsonConvert.DeserializeObject(result);
+            // convert jarray to list<color>
+            colors = items.ToObject<List<BL.Models.Color>>();
+
+
+
+            Rebind(0);
 
         }
     }
